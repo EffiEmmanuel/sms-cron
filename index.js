@@ -1,5 +1,5 @@
-const fetch = require("node-fetch");
-const cron = require("node-cron");
+import fetch from "node-fetch";
+import cron from "node-cron";
 
 // Function to send the SMS request
 async function sendSMS() {
