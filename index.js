@@ -1,6 +1,7 @@
 import * as dotenv from "dotenv";
 dotenv.config();
 import cron from "node-cron";
+import express from "express";
 import { getSpreadsheet } from "./lib/google/getSpreadSheet.js";
 import { processEvents } from "./lib/utils.js";
 
@@ -26,3 +27,15 @@ cron.schedule("0 * * * *", () => {
 
 // Keep the script running
 console.log("Cron job started. Will run every hour.");
+
+// Express server for health checks
+const app = express();
+const PORT = process.env.PORT || 8000;
+
+app.get("/", (req, res) => {
+  res.send("Cron job is running.");
+});
+
+app.listen(PORT, () => {
+  console.log(`Health check server running on port ${PORT}`);
+});
