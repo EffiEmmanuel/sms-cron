@@ -1,6 +1,5 @@
 import * as dotenv from "dotenv";
 dotenv.config();
-import fetch from "node-fetch";
 import cron from "node-cron";
 import { getSpreadsheet } from "./lib/google/getSpreadSheet.js";
 import { processEvents } from "./lib/utils.js";
