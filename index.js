@@ -20,9 +20,9 @@ async function sendSMS() {
 }
 
 // Schedule the task to run every hour
-cron.schedule("0 * * * *", () => {
+cron.schedule("0 * * * *", async () => {
   console.log("Running SMS cron job at", new Date());
-  sendSMS();
+  await sendSMS();
 });
 
 // Keep the script running
