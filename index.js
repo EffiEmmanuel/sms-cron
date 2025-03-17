@@ -37,6 +37,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/ping", (req, res) => {
+  console.log("Server is live.");
   res.send("Server is live.");
 });
 
