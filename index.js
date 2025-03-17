@@ -1,7 +1,7 @@
 import * as dotenv from "dotenv";
 dotenv.config();
 import cron from "node-cron";
-import express from "express";
+import express, { json } from "express";
 import { getSpreadsheet } from "./lib/google/getSpreadSheet.js";
 import { processEvents } from "./lib/utils.js";
 
@@ -30,6 +30,7 @@ async function sendSMS() {
 
 // Express server for health checks
 const app = express();
+app.use(json());
 const PORT = process.env.PORT || 8000;
 
 app.get("/", (req, res) => {
