@@ -36,6 +36,10 @@ app.get("/", (req, res) => {
   res.send("Cron job is running.");
 });
 
+app.get("/ping", (req, res) => {
+  res.send("Server is live.");
+});
+
 app.listen(PORT, () => {
   console.log(`Health check server running on port ${PORT}`);
 });
